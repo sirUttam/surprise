@@ -1,0 +1,2569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>A Little Something For You ❤️</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    font-family:
+        "Poppins",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: #4a2632;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            #ffd6e7 0%,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            #ffe5b5 0%,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #fff0f5,
+            #ffe4ec,
+            #fff7e6
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: max(44px, 7vh) max(12px, 2vw) 24px;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.progress {
+    position: fixed;
+
+    top: 12px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(500px, calc(100vw - 40px));
+    height: 5px;
+
+    background: rgba(255,255,255,.65);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    z-index: 50;
+
+    box-shadow: 0 2px 10px rgba(150,50,80,.08);
+}
+
+.progress-bar {
+    width: 11.11%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4d83,
+            #ff8cae,
+            #ffb36b
+        );
+
+    border-radius: 20px;
+
+    transition: width .5s ease;
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.heart {
+    position: fixed;
+
+    bottom: -50px;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    opacity: .65;
+
+    animation:
+        floatHeart linear forwards;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .7;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   SCREEN
+========================================================= */
+
+.screen {
+
+    width: min(650px, calc(100vw - 24px));
+
+    min-height: calc(100vh - 40px);
+    min-height: calc(100dvh - 40px);
+
+    padding: clamp(24px, 5vw, 45px) clamp(16px, 5.4vw, 35px);
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,.84);
+
+    backdrop-filter: blur(18px);
+
+    border:
+        2px solid
+        rgba(255,255,255,.8);
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(171,70,105,.18),
+
+        inset 0 0 30px
+        rgba(255,255,255,.65);
+
+    animation:
+        pageIn .55s ease;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+}
+
+.screen.active {
+    display: flex;
+}
+
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   CUTE GIF / CHARACTER AREA
+========================================================= */
+
+.gif-box {
+
+    width: 180px;
+    height: 150px;
+
+    margin-bottom: 22px;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe0eb,
+            #fff2c9
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(200,70,110,.15);
+}
+
+.gif-box img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* Emoji fallback */
+
+.cute-character {
+
+    font-size: 75px;
+
+    animation:
+        cuteBounce 1.7s
+        infinite
+        ease-in-out;
+}
+
+@keyframes cuteBounce {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-4deg);
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(4deg);
+    }
+
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+h1 {
+
+    font-size:
+        clamp(
+            28px,
+            6vw,
+            45px
+        );
+
+    line-height: 1.15;
+
+    color: #d94c7d;
+
+    margin-bottom: 15px;
+}
+
+h2 {
+
+    font-size: clamp(23px, 5vw, 27px);
+
+    color: #c94370;
+
+    margin-bottom: 10px;
+}
+
+p {
+
+    font-size: clamp(16px, 3.9vw, 17px);
+
+    line-height: 1.7;
+
+    color: #704453;
+
+    margin-bottom: 25px;
+}
+
+.small-text {
+
+    font-size: 14px;
+
+    opacity: .7;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.buttons {
+
+    display: flex;
+
+    gap: clamp(12px, 4vw, 20px);
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 15px;
+
+    min-height: 90px;
+
+    position: relative;
+    isolation: isolate;
+
+    width: 100%;
+}
+
+button {
+
+    border: none;
+
+    cursor: pointer;
+
+    border-radius: 999px;
+
+    min-height: 48px;
+    padding: 13px 24px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    transition:
+        .25s ease;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+.yes-btn,
+.primary-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff5f91,
+            #ff3f73
+        );
+
+    color: white;
+
+    box-shadow:
+        0 9px 20px
+        rgba(255,63,115,.25);
+}
+
+.yes-btn:hover,
+.primary-btn:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
+    box-shadow:
+        0 13px 28px
+        rgba(255,63,115,.35);
+}
+
+.no-btn {
+
+    background:
+        #f0e9eb;
+
+    color:
+        #795866;
+
+    position: relative;
+
+    touch-action: manipulation;
+    will-change: transform;
+
+    transition:
+        transform 120ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.repel.disappearing {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.2);
+    transition: transform 180ms ease, opacity 180ms ease;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form {
+
+    width: 100%;
+
+    max-width: 450px;
+
+    text-align: left;
+}
+
+label {
+
+    display: block;
+
+    margin:
+        15px
+        0
+        7px;
+
+    font-weight: 700;
+
+    color: #754151;
+}
+
+input,
+select {
+
+    width: 100%;
+
+    border:
+        2px solid
+        #f3c8d5;
+
+    border-radius: 15px;
+
+    padding:
+        14px
+        16px;
+
+    background:
+        #fffafd;
+
+    outline: none;
+
+    color: #56333f;
+
+    font-size: 16px;
+
+    min-height: 48px;
+
+    transition: .2s;
+}
+
+input:focus,
+select:focus {
+
+    border-color:
+        #ff7199;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(255,113,153,.1);
+}
+
+.form button {
+
+    width: 100%;
+
+    margin-top: 22px;
+}
+
+
+/* =========================================================
+   FOOD CARDS
+========================================================= */
+
+.food-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+
+    width: 100%;
+
+    max-width: 470px;
+
+    margin:
+        15px
+        0
+        20px;
+}
+
+.food-card {
+
+    background:
+        white;
+
+    border:
+        3px solid
+        transparent;
+
+    border-radius: 22px;
+
+    padding: 12px;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+    box-shadow:
+        0 8px 22px
+        rgba(150,60,90,.08);
+
+    min-width: 0;
+}
+
+.food-card:hover {
+
+    transform:
+        translateY(-5px)
+        rotate(1deg);
+}
+
+.food-card.selected {
+
+    border-color:
+        #ff5c8b;
+
+    background:
+        #fff0f5;
+
+    transform:
+        scale(1.04);
+}
+
+.food-img {
+
+    width: 100%;
+
+    height: 100px;
+
+    border-radius: 16px;
+
+    background:
+        #fff0f4;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: clamp(42px, 12vw, 60px);
+}
+
+.food-name {
+
+    margin-top: 8px;
+
+    font-weight: 700;
+
+    color:
+        #713c4d;
+}
+
+
+/* =========================================================
+   GIFT
+========================================================= */
+
+.gift-area {
+
+    margin-top: 20px;
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+.gift {
+
+    font-size: clamp(80px, 25vw, 120px);
+
+    animation:
+        giftBounce
+        1.1s
+        infinite
+        ease-in-out;
+
+    filter:
+        drop-shadow(
+            0 12px 10px
+            rgba(200,60,90,.2)
+        );
+}
+
+@keyframes giftBounce {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            translateY(-18px)
+            rotate(3deg);
+    }
+}
+
+.click-me {
+
+    margin-top: -5px;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    color:
+        #ef4e7b;
+
+    animation:
+        pulse 1s infinite;
+}
+
+@keyframes pulse {
+
+    50% {
+        transform:
+            scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   BOOM
+========================================================= */
+
+.boom {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 100px;
+}
+
+.boom.show {
+
+    display: flex;
+
+    animation:
+        boom .7s ease;
+}
+
+@keyframes boom {
+
+    0% {
+        transform:
+            scale(.2);
+
+        opacity: 0;
+    }
+
+    50% {
+        transform:
+            scale(1.7);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            scale(3);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   LOVE LETTER
+========================================================= */
+
+.letter {
+
+    background:
+        #fffdf5;
+
+    width: 100%;
+
+    max-width: 520px;
+
+    padding: 30px;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(100,60,40,.15);
+
+    position: relative;
+
+    text-align: left;
+
+    transform:
+        rotate(-1deg);
+
+    border:
+        1px solid
+        #f3dfb0;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.letter::before {
+
+    content: "💌";
+
+    position: absolute;
+
+    right: 18px;
+
+    top: -25px;
+
+    font-size: 45px;
+}
+
+.letter h2 {
+
+    text-align: center;
+
+    margin-bottom: 18px;
+}
+
+.pickup {
+
+    background:
+        #fff0f5;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    margin: 10px 0;
+
+    color:
+        #753d4e;
+
+    font-style: italic;
+
+    overflow-wrap: break-word;
+}
+
+.sorry {
+
+    margin-top: 20px;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+.signature {
+
+    margin-top: 20px;
+
+    text-align: right;
+
+    font-weight: 700;
+
+    color:
+        #d64e78;
+}
+
+
+/* =========================================================
+   DATE CONFIRMATION
+========================================================= */
+
+.date-confirmation {
+
+    width: 100%;
+
+    max-width: 430px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin: 15px 0;
+}
+
+.date-box {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1f6,
+            #fff9ed
+        );
+
+    border:
+        2px solid
+        #f7d0dc;
+
+    border-radius: 18px;
+
+    padding:
+        15px
+        20px;
+
+    text-align: left;
+
+    box-shadow:
+        0 7px 18px
+        rgba(200,70,100,.08);
+}
+
+.date-box span {
+
+    font-size: 28px;
+}
+
+.date-box strong {
+
+    color:
+        #713c4d;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   FINAL CARD
+========================================================= */
+
+.final-card {
+
+    width: 100%;
+
+    max-width: 450px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,245,249,.95),
+            rgba(255,250,237,.95)
+        );
+
+    border:
+        2px solid
+        #f5ccd8;
+
+    border-radius: 28px;
+
+    padding:
+        30px
+        25px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(190,70,100,.12);
+
+    overflow-wrap: break-word;
+}
+
+.mini-heart {
+
+    font-size: 45px;
+
+    animation:
+        heartbeat
+        1.2s
+        infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform:
+            scale(1);
+    }
+
+    15% {
+        transform:
+            scale(1.2);
+    }
+
+    30% {
+        transform:
+            scale(1);
+    }
+
+    45% {
+        transform:
+            scale(1.15);
+    }
+}
+
+.location-final {
+
+    background:
+        white;
+
+    padding:
+        12px
+        18px;
+
+    border-radius: 14px;
+
+    margin:
+        18px
+        0;
+
+    color:
+        #d34f78;
+
+    font-weight: 700;
+}
+
+#screen9 .gif-box {
+
+    animation:
+        finalFloat
+        2s
+        infinite
+        ease-in-out;
+}
+
+@keyframes finalFloat {
+
+    0%,100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width: 500px) {
+
+    .screen {
+
+        padding: 28px 16px;
+        min-height: calc(100vh - 40px);
+        min-height: calc(100dvh - 40px);
+
+        border-radius:
+            27px;
+    }
+
+    .buttons {
+
+        flex-direction: column;
+        gap: 12px;
+        min-height: 220px;
+    }
+
+    button {
+
+        width: min(100%, 260px);
+        padding: 13px 18px;
+    }
+
+    .food-grid {
+
+        gap:
+            10px;
+    }
+
+    .food-img {
+
+        height:
+            78px;
+
+        font-size:
+            48px;
+    }
+
+    .letter {
+
+        padding: 24px 16px;
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+========================================================= */
+
+@media(max-width: 380px) {
+
+    .app {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    .gif-box {
+        width: 140px;
+        height: 116px;
+    }
+
+    .cute-character {
+        font-size: 56px;
+    }
+
+    .screen {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .food-grid {
+        gap: 8px;
+    }
+
+    .food-img {
+        height: 70px;
+        font-size: 42px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     PROGRESS
+======================================================= -->
+
+<div class="progress">
+
+    <div
+        class="progress-bar"
+        id="progressBar">
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     FLOATING HEART CONTAINER
+======================================================= -->
+
+<div id="hearts"></div>
+
+
+<!-- =======================================================
+     APP
+======================================================= -->
+
+<div class="app">
+
+
+<!-- =======================================================
+     SCREEN 1
+======================================================= -->
+
+<section
+    class="screen active"
+    id="screen1"
+>
+
+    <div class="gif-box">
+
+        <div class="cute-character">
+            🥺
+        </div>
+
+    </div>
+
+
+    <h1>
+        Will you go on a date with me? 💗
+    </h1>
+
+
+    <p>
+
+        I have a very important question
+        for you...
+
+        <br>
+
+        And please think carefully. 👉👈
+
+    </p>
+
+
+    <div
+        class="buttons"
+        id="dateButtons"
+    >
+
+        <button
+            class="yes-btn"
+            onclick="nextScreen(2)"
+        >
+            YES 💕
+        </button>
+
+
+        <button
+            class="no-btn repel"
+        >
+            NO 😐
+        </button>
+
+    </div>
+
+
+    <p class="small-text">
+
+        Choose wisely... 👀
+
+    </p>
+
+</section>
+
+
+
+<!-- =======================================================
+     SCREEN 2
+======================================================= -->
+
+<section
+    class="screen"
+    id="screen2"
+>
+
+    <div class="gif-box">
+
+        <div class="cute-character">
+            😳
+        </div>
+
+    </div>
+
+
+    <h1>
+        Wait... you actually said yes?? 😭❤️
+    </h1>
+
+
+    <p>
+
+        I was literally preparing myself
+        for you to say no.
+
+        <br>
+
+        Now I'm confused...
+
+        <br>
+
+        But very happy. 🥹
+
+    </p>
+
+
+    <button
+        class="primary-btn"
+        onclick="nextScreen(3)"
+    >
+
+        Okay okay 😭💕
+
+    </button>
+
+</section>
+
+
+
+<!-- =======================================================
+     SCREEN 3
+======================================================= -->
+
+<section
+    class="screen"
+    id="screen3"
+>
+
+    <div class="gif-box">
+
+        <div class="cute-character">
+            🐶
+        </div>
+
+    </div>
+
+
+    <h2>
+        So... when are you free? 🥰
+    </h2>
+
+
+    <p>
+        Let's actually make this happen.
+    </p>
+
+
+    <div class="form">
+
+
+        <label>
+            Pick a day 📅
+        </label>
+
+
+        <input
+            type="date"
+            id="date"
+        >
+
+
+        <label>
+            What time? ⏰
+        </label>
+
+
+        <input
+            type="time"
+            id="time"
+        >
+
+
+        <label>
+            Where should we go? 📍
+        </label>
+
+
+        <select id="location">
+
+            <option value="">
+                Choose a place...
+            </option>
+
+            <option>
+                Chapparvatti
+            </option>
+
+            <option>
+                Nuwakot
+            </option>
+
+            <option>
+                Just scooter ride 🛵
+            </option>
+
+            <option>
+                Somewhere else 💭
+            </option>
+
+        </select>
+
+
+        <button
+            class="primary-btn"
+            onclick="saveDate()"
+        >
+
+            Set Date 💕
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     SCREEN 4
+======================================================= -->
+
+<section
+    class="screen"
+    id="screen4"
+>
+
+    <div class="gif-box">
+
+        <div class="cute-character">
+            🙈
+        </div>
+
+    </div>
+
+
+    <h1>
+        Be honest... 👀
+    </h1>
+
+
+    <h2>
+        Are you angry with me?
+    </h2>
+
+
+    <p>
+
+        Think carefully before answering.
+
+        <br>
+
+        This question is extremely serious. 😭
+
+    </p>
+
+
+    <div class="buttons">
+
+
+        <button
+            class="no-btn repel"
+        >
+            YES 😤
+        </button>
+
+
+        <button
+            class="yes-btn"
+            onclick="nextScreen(5)"
+        >
+            NO 🥺
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     SCREEN 5
+======================================================= -->
+
+<section
+    class="screen"
+    id="screen5"
+>
+
+    <div class="gif-box">
+
+        <div class="cute-character">
+            🍕
+        </div>
+
+    </div>
+
+
+    <h2>
+        Okay... what are we feeling? 😋
+    </h2>
+
+
+    <p>
+        Pick your food.
+        You can choose more than one.
+    </p>
+
+
+    <div class="food-grid">
+
+
+        <div
+            class="food-card"
+            onclick="selectFood(this)"
+        >
+
+            <div class="food-img">
+                🍕
+            </div>
+
+            <div class="food-name">
+                Pizza
+            </div>
+
+        </div>
+
+
+        <div
+            class="food-card"
+            onclick="selectFood(this)"
+        >
+
+            <div class="food-img">
+                🍔
+            </div>
+
+            <div class="food-name">
+                Burger
+            </div>
+
+        </div>
+
+
+        <div
+            class="food-card"
+            onclick="selectFood(this)"
+        >
+
+            <div class="food-img">
+                🍜
+            </div>
+
+            <div class="food-name">
+                Chowmein
+            </div>
+
+        </div>
+
+
+        <div
+            class="food-card"
+            onclick="selectFood(this)"
+        >
+
+            <div class="food-img">
+                🍫
+            </div>
+
+            <div class="food-name">
+                Chocolates
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="primary-btn"
+        onclick="confirmFood()"
+    >
+
+        Confirm 😋❤️
+
+    </button>
+
+</section>
+
+
+
+<!-- =======================================================
+     SCREEN 6
+======================================================= -->
+
+<section
+    class="screen"
+    id="screen6"
+>
+
+    <div class="gif-box">
+
+        <div class="cute-character">
+            🎁
+        </div>
+
+    </div>
+
+
+    <h1>
+        One last thing...
+    </h1>
+
+
+    <p>
+        I have a tiny surprise for you.
+    </p>
+
+
+    <div
+        class="gift-area"
+        onclick="openGift()"
+    >
+
+        <div class="gift">
+            🎁
+        </div>
+
+
+        <div class="click-me">
+            CLICK ME 💥
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     SCREEN 7
+======================================================= -->
+
+<section
+    class="screen"
+    id="screen7"
+>
+
+    <div class="gif-box">
+
+        <div class="cute-character">
+            🥹❤️
+        </div>
+
+    </div>
+
+
+    <div class="letter">
+
+
+        <h2>
+            For You 💌
+        </h2>
+
+
+        <div class="pickup">
+
+            "Are you WiFi?
+            Because I feel a connection
+            every time you're around."
+
+            😭
+
+        </div>
+
+
+        <div class="pickup">
+
+            "I was going to make a good
+            pickup line...
+
+            but then I saw you
+            and forgot it."
+
+            🫠
+
+        </div>
+
+
+        <div class="sorry">
+
+            I know I made you angry,
+            and I'm really sorry.
+
+            <br><br>
+
+            I don't want to pretend that
+            nothing happened.
+
+            Sometimes I mess things up
+            even when I don't mean to.
+
+            <br><br>
+
+            But I really care about you,
+            and I don't like knowing
+            that you're upset because of me.
+
+            <br><br>
+
+            So... I'm sorry. ❤️
+
+            <br><br>
+
+            Now let me make it up to you
+            with food, a scooter ride,
+            and some time together.
+
+        </div>
+
+
+        <div class="signature">
+
+            Yours,
+            probably still in trouble 😭❤️
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="primary-btn"
+        style="margin-top:25px"
+        onclick="nextScreen(8)"
+    >
+
+        One more thing... 👀
+
+    </button>
+
+</section>
+
+
+
+<!-- =======================================================
+     SCREEN 8
+======================================================= -->
+
+<section
+    class="screen"
+    id="screen8"
+>
+
+    <div class="gif-box">
+
+        <div class="cute-character">
+            🥹❤️
+        </div>
+
+    </div>
+
+
+    <h1>
+        Glad you didn't say no. 🥹
+    </h1>
+
+
+    <p>
+
+        Honestly...
+
+        I was a little scared there. 😭
+
+        <br><br>
+
+        But now that you've said yes...
+
+    </p>
+
+
+    <div class="date-confirmation">
+
+
+        <div class="date-box">
+
+            <span>
+                📅
+            </span>
+
+            <strong id="finalDate">
+                Your date
+            </strong>
+
+        </div>
+
+
+        <div class="date-box">
+
+            <span>
+                ⏰
+            </span>
+
+            <strong id="finalTime">
+                Your time
+            </strong>
+
+        </div>
+
+
+        <div class="date-box">
+
+            <span>
+                📍
+            </span>
+
+            <strong id="finalLocation">
+                Your place
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+    <h2 style="margin-top:25px;">
+
+        Be ready. 💕
+
+    </h2>
+
+
+    <p>
+
+        I'm coming to get you...
+
+        🛵💨
+
+        <br><br>
+
+        So please be ready by
+        the time above.
+
+        <br>
+
+        And don't make me wait. 😤❤️
+
+    </p>
+
+
+    <button
+        class="primary-btn"
+        onclick="nextScreen(9)"
+    >
+
+        Okay, I'll be ready 🥰
+
+    </button>
+
+</section>
+
+
+
+<!-- =======================================================
+     SCREEN 9
+======================================================= -->
+
+<section
+    class="screen"
+    id="screen9"
+>
+
+    <div class="gif-box">
+
+        <div class="cute-character">
+            🛵💨
+        </div>
+
+    </div>
+
+
+    <h1>
+        It's a date! ❤️
+    </h1>
+
+
+    <p>
+
+        No cancelling.
+
+        <br>
+
+        No disappearing.
+
+        <br>
+
+        No pretending you forgot. 👀
+
+    </p>
+
+
+    <div class="final-card">
+
+
+        <div class="mini-heart">
+            ❤️
+        </div>
+
+
+        <h2>
+            See you soon, pretty girl. 🥰
+        </h2>
+
+
+        <p>
+
+            I'll see you on
+
+            <strong id="finalDate2">
+            </strong>
+
+            at
+
+            <strong id="finalTime2">
+            </strong>.
+
+        </p>
+
+
+        <div class="location-final">
+
+            📍
+
+            <span id="finalLocation2">
+            </span>
+
+        </div>
+
+
+        <p class="small-text">
+
+            P.S. Bring your cute angry face too. 😭
+
+        </p>
+
+
+    </div>
+
+
+    <div
+        style="
+            font-size:35px;
+            margin-top:25px;
+        "
+    >
+
+        💕 🥹 💕 🛵 💕 🍫 💕
+
+    </div>
+
+
+</section>
+
+
+</div>
+
+
+
+<!-- =======================================================
+     BOOM
+======================================================= -->
+
+<div
+    class="boom"
+    id="boom"
+>
+    💥💖✨
+</div>
+
+
+
+<script>
+
+
+/* =========================================================
+   GLOBAL STATE
+========================================================= */
+
+let currentScreen = 1;
+
+
+/* =========================================================
+   SCREEN NAVIGATION
+========================================================= */
+
+function nextScreen(number) {
+
+
+    const current =
+        document.getElementById(
+            "screen" + currentScreen
+        );
+
+
+    const next =
+        document.getElementById(
+            "screen" + number
+        );
+
+
+    if (!next) {
+        return;
+    }
+
+
+    current.classList.remove("active");
+
+
+    next.classList.add("active");
+
+
+    currentScreen = number;
+
+
+    updateProgress();
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+
+    /*
+        Add a few extra hearts whenever
+        she reaches a new screen.
+    */
+
+    for (let i = 0; i < 5; i++) {
+
+        setTimeout(
+            createHeart,
+            i * 100
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+function updateProgress() {
+
+
+    const percentage =
+        (currentScreen / 9) * 100;
+
+
+    document
+        .getElementById("progressBar")
+        .style.width =
+        percentage + "%";
+
+}
+
+
+/* =========================================================
+   DODGING BUTTON
+========================================================= */
+
+function rectanglesOverlap(first, second, padding = 0) {
+    return !(
+        first.right + padding < second.left ||
+        first.left - padding > second.right ||
+        first.bottom + padding < second.top ||
+        first.top - padding > second.bottom
+    );
+}
+
+function makeButtonRunAway(button, pointerX, pointerY) {
+    const area = button.parentElement;
+    const areaRect = area.getBoundingClientRect();
+    const originalTransition = button.style.transition;
+
+    button.style.transform = "translate3d(0, 0, 0)";
+    button.style.transition = "none";
+
+    const buttonRect = button.getBoundingClientRect();
+    const otherButton = [...area.querySelectorAll("button")]
+        .find(candidate => candidate !== button);
+    const otherRect = otherButton && otherButton.getBoundingClientRect();
+    const padding = 8;
+    const minEscape = Math.min(
+        220,
+        Math.max(80, Math.min(areaRect.width, areaRect.height) * .45)
+    );
+    const candidates = [];
+
+    for (let attempt = 0; attempt < 24; attempt++) {
+        const left = areaRect.left + Math.random() * Math.max(0, areaRect.width - buttonRect.width);
+        const top = areaRect.top + Math.random() * Math.max(0, areaRect.height - buttonRect.height);
+        const candidateRect = {
+            left,
+            top,
+            right: left + buttonRect.width,
+            bottom: top + buttonRect.height
+        };
+        const centerX = left + buttonRect.width / 2;
+        const centerY = top + buttonRect.height / 2;
+        const previousDistance = Math.hypot(
+            centerX - (buttonRect.left + buttonRect.width / 2),
+            centerY - (buttonRect.top + buttonRect.height / 2)
+        );
+        const fingerDistance = Math.hypot(centerX - pointerX, centerY - pointerY);
+
+        candidates.push({
+            left,
+            top,
+            score: previousDistance + fingerDistance,
+            valid: previousDistance >= minEscape &&
+                fingerDistance >= 55 &&
+                (!otherRect || !rectanglesOverlap(candidateRect, otherRect, padding))
+        });
+    }
+
+    const best = candidates
+        .filter(candidate => candidate.valid)
+        .sort((first, second) => second.score - first.score)[0]
+        || candidates.sort((first, second) => second.score - first.score)[0];
+
+    if (best) {
+        const targetRect = {
+            left: best.left,
+            top: best.top,
+            right: best.left + buttonRect.width,
+            bottom: best.top + buttonRect.height
+        };
+
+        if (otherRect && rectanglesOverlap(targetRect, otherRect, padding)) {
+            const safeSlots = [
+                areaRect.top,
+                areaRect.bottom - buttonRect.height
+            ]
+                .map(top => ({
+                    left: areaRect.left + (areaRect.width - buttonRect.width) / 2,
+                    top,
+                    score: Math.hypot(
+                        areaRect.left + (areaRect.width - buttonRect.width) / 2 - pointerX,
+                        top + buttonRect.height / 2 - pointerY
+                    )
+                }))
+                .filter(candidate => !rectanglesOverlap({
+                    left: candidate.left,
+                    top: candidate.top,
+                    right: candidate.left + buttonRect.width,
+                    bottom: candidate.top + buttonRect.height
+                }, otherRect));
+
+            if (safeSlots.length) {
+                best.left = safeSlots[0].left;
+                best.top = safeSlots.sort((first, second) => second.score - first.score)[0].top;
+            }
+        }
+
+        button.style.transition = originalTransition;
+        button.style.transform = `translate3d(${best.left - buttonRect.left}px, ${best.top - buttonRect.top}px, 0)`;
+    }
+}
+
+document.querySelectorAll(".repel").forEach(button => {
+    button.addEventListener("click", event => {
+        event.preventDefault();
+    });
+
+    button.addEventListener("pointerdown", event => {
+        event.preventDefault();
+
+        const attempts = Number(button.dataset.escapeAttempts || 0) + 1;
+        button.dataset.escapeAttempts = attempts;
+
+        if (attempts === 5) {
+            button.classList.add("disappearing");
+            button.style.transition = "transform 180ms ease, opacity 180ms ease";
+            button.style.transform = "scale(.2)";
+
+            setTimeout(() => button.remove(), 200);
+            return;
+        }
+
+        makeButtonRunAway(button, event.clientX, event.clientY);
+    });
+});
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+function createHeart() {
+
+
+    const heart =
+        document.createElement("div");
+
+
+    heart.className =
+        "heart";
+
+
+    const heartOptions = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💘",
+        "🌸",
+        "✨",
+        "💞"
+    ];
+
+
+    heart.innerText =
+        heartOptions[
+            Math.floor(
+                Math.random()
+                * heartOptions.length
+            )
+        ];
+
+
+    const heartSize =
+        14 + Math.random() * 22;
+
+
+    heart.style.left =
+        Math.random() * Math.max(0, window.innerWidth - heartSize) + "px";
+
+
+    heart.style.animationDuration =
+        (
+            5 +
+            Math.random() * 5
+        ) + "s";
+
+
+    heart.style.fontSize = heartSize + "px";
+
+
+    document
+        .getElementById("hearts")
+        .appendChild(heart);
+
+
+    setTimeout(
+        () => heart.remove(),
+        10000
+    );
+
+}
+
+
+/*
+    Keep creating hearts.
+*/
+
+setInterval(
+    createHeart,
+    650
+);
+
+
+/* =========================================================
+   DATE SETUP
+========================================================= */
+
+const dateInput =
+    document.getElementById("date");
+
+
+/*
+    Prevent selecting a date
+    before today.
+*/
+
+const today =
+    new Date()
+        .toISOString()
+        .split("T")[0];
+
+
+dateInput.min =
+    today;
+
+
+/* =========================================================
+   SAVE DATE
+========================================================= */
+
+function saveDate() {
+
+
+    const date =
+        document
+            .getElementById("date")
+            .value;
+
+
+    const time =
+        document
+            .getElementById("time")
+            .value;
+
+
+    const location =
+        document
+            .getElementById("location")
+            .value;
+
+
+    /*
+        Make sure everything
+        has been selected.
+    */
+
+    if (
+        !date ||
+        !time ||
+        !location
+    ) {
+
+        alert(
+            "You have to choose everything first 😭❤️"
+        );
+
+        return;
+
+    }
+
+
+    /*
+        Format date.
+    */
+
+    const dateObject =
+        new Date(
+            date + "T00:00:00"
+        );
+
+
+    const formattedDate =
+        dateObject.toLocaleDateString(
+            "en-US",
+            {
+                weekday: "long",
+                month: "long",
+                day: "numeric",
+                year: "numeric"
+            }
+        );
+
+
+    /*
+        Format time.
+    */
+
+    const timeObject =
+        new Date(
+            "1970-01-01T" + time
+        );
+
+
+    const formattedTime =
+        timeObject.toLocaleTimeString(
+            "en-US",
+            {
+                hour: "numeric",
+                minute: "2-digit"
+            }
+        );
+
+
+    /*
+        SCREEN 8
+    */
+
+    document
+        .getElementById("finalDate")
+        .textContent =
+        formattedDate;
+
+
+    document
+        .getElementById("finalTime")
+        .textContent =
+        formattedTime;
+
+
+    document
+        .getElementById("finalLocation")
+        .textContent =
+        location;
+
+
+    /*
+        SCREEN 9
+    */
+
+    document
+        .getElementById("finalDate2")
+        .textContent =
+        formattedDate;
+
+
+    document
+        .getElementById("finalTime2")
+        .textContent =
+        formattedTime;
+
+
+    document
+        .getElementById("finalLocation2")
+        .textContent =
+        location;
+
+
+    /*
+        Continue to anger question.
+    */
+
+    nextScreen(4);
+
+}
+
+
+/* =========================================================
+   FOOD SELECTION
+========================================================= */
+
+function selectFood(card) {
+
+
+    card.classList.toggle(
+        "selected"
+    );
+
+
+    /*
+        Tiny bounce effect.
+    */
+
+    card.animate(
+        [
+            {
+                transform:
+                    "scale(1)"
+            },
+
+            {
+                transform:
+                    "scale(1.08)"
+            },
+
+            {
+                transform:
+                    "scale(1.04)"
+            }
+        ],
+        {
+            duration: 250
+        }
+    );
+
+}
+
+
+/* =========================================================
+   FOOD CONFIRMATION
+========================================================= */
+
+function confirmFood() {
+
+
+    const selected =
+        document.querySelectorAll(
+            ".food-card.selected"
+        );
+
+
+    /*
+        Don't force a selection,
+        but make it more playful.
+    */
+
+    if (selected.length === 0) {
+
+        alert(
+            "At least choose something 😭🍕"
+        );
+
+        return;
+
+    }
+
+
+    nextScreen(6);
+
+}
+
+
+/* =========================================================
+   OPEN GIFT
+========================================================= */
+
+function openGift() {
+
+
+    const boom =
+        document.getElementById(
+            "boom"
+        );
+
+
+    /*
+        Show explosion.
+    */
+
+    boom.classList.add(
+        "show"
+    );
+
+
+    /*
+        Create a bunch of
+        explosion hearts.
+    */
+
+    for (
+        let i = 0;
+        i < 18;
+        i++
+    ) {
+
+        setTimeout(
+            createHeart,
+            i * 40
+        );
+
+    }
+
+
+    /*
+        Move to letter.
+    */
+
+    setTimeout(
+        () => {
+
+            boom.classList.remove(
+                "show"
+            );
+
+            nextScreen(7);
+
+        },
+        650
+    );
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+updateProgress();
+
+
+/*
+    Initial hearts.
+*/
+
+for (
+    let i = 0;
+    i < 8;
+    i++
+) {
+
+    setTimeout(
+        createHeart,
+        i * 300
+    );
+
+}
+
+</script>
+
+</body>
+</html>
