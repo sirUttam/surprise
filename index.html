@@ -432,6 +432,19 @@ button {
         rgba(255,63,115,.35);
 }
 
+.whatsapp-btn {
+    width: min(100%, 320px);
+    margin-top: 12px;
+    background: #25d366;
+    color: #fff;
+    box-shadow: 0 9px 20px rgba(37,211,102,.2);
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 13px 28px rgba(37,211,102,.3);
+}
+
 .no-btn {
 
     background:
@@ -1825,6 +1838,15 @@ select:focus {
 
     </button>
 
+    <button
+        class="whatsapp-btn"
+        onclick="shareDatePlan()"
+    >
+
+        Send my date plan to you 💌
+
+    </button>
+
 </section>
 
 
@@ -1955,6 +1977,8 @@ select:focus {
 ========================================================= */
 
 let currentScreen = 1;
+const MY_WHATSAPP_NUMBER = "9779865549270";
+let selectedFoods = [];
 
 
 /* =========================================================
@@ -2409,10 +2433,25 @@ function saveDate() {
 
 function selectFood(card) {
 
+    const foodName =
+        card
+            .querySelector(".food-name")
+            .textContent
+            .trim();
+
 
     card.classList.toggle(
         "selected"
     );
+
+
+    if (card.classList.contains("selected")) {
+        selectedFoods.push(foodName);
+    } else {
+        selectedFoods = selectedFoods.filter(
+            food => food !== foodName
+        );
+    }
 
 
     /*
@@ -2441,6 +2480,67 @@ function selectFood(card) {
         }
     );
 
+}
+
+
+/* =========================================================
+   WHATSAPP SHARING
+========================================================= */
+
+function shareDatePlan() {
+
+    if (MY_WHATSAPP_NUMBER === "977XXXXXXXXXX") {
+        alert(
+            "Please replace MY_WHATSAPP_NUMBER with your WhatsApp number first."
+        );
+
+        return;
+    }
+
+
+    const date =
+        document
+            .getElementById("finalDate2")
+            .textContent
+            .trim();
+
+
+    const time =
+        document
+            .getElementById("finalTime2")
+            .textContent
+            .trim();
+
+
+    const location =
+        document
+            .getElementById("finalLocation2")
+            .textContent
+            .trim();
+
+
+    const food =
+        selectedFoods.join(", ");
+
+
+    const message =
+        `Hey ❤️ I said YES!\n\n` +
+        `Here's our date plan:\n\n` +
+        `📅 Date: ${date}\n\n` +
+        `⏰ Time: ${time}\n\n` +
+        `📍 Location: ${location}\n\n` +
+        `🍕 Food: ${food}\n\n` +
+        `I chose everything 🥹❤️`;
+
+
+    const whatsappUrl =
+        "https://wa.me/" +
+        MY_WHATSAPP_NUMBER +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    window.location.href = whatsappUrl;
 }
 
 
